@@ -31,7 +31,7 @@ export const navConfig: NavEntry[] = [
   { label: "Search", icon: Search, href: "/search" },
   { label: "Sharing", icon: Share2, href: "/sharing" },
   { label: "Analytics", icon: BarChart3, href: "/analytics" },
-  { label: "Profile", icon: User, href: "/profile" },
+  { label: "Profile", icon: User, href: "/profile/edit" },
   { label: "Settings", icon: Settings, href: "/settings" },
 ];
 

@@ -4,12 +4,14 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SettingsPage from "./page";
 
+import type { LanguageCode } from "@/lib/types/api";
+
 // Mock auth context
-const mockUser = {
+const mockUser: { id: number; username: string; email: string; languagePreference: LanguageCode; avatarUrl: string | null } = {
   id: 1,
   username: "testuser",
   email: "test@example.com",
-  languagePreference: "en" as const,
+  languagePreference: "en",
   avatarUrl: null,
 };
 

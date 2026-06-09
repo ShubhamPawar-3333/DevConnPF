@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # Local
     'explorer',
+    'profiles',
 ]
 
 MIDDLEWARE = [

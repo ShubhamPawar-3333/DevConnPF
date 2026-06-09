@@ -20,3 +20,19 @@ export type {
   SearchState,
   IngestionState,
 } from "./ui-state";
+
+export type {
+  ProjectEntry,
+  Profile,
+  ProfileOwner,
+  ProfileMini,
+  Follow,
+  PaginatedResponse,
+  SearchResponse,
+  ProfileCreateData,
+  ProfileUpdateData,
+  ProjectAddData,
+  ProjectReorderItem,
+  ProjectReorderData,
+  GitHubImportPreview,
+} from "./profiles";
