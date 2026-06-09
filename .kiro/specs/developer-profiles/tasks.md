@@ -307,21 +307,21 @@ This implementation plan breaks down the Developer Profiles feature into discret
 
 ### 10. Backend Testing: Property-Based Tests (Part 1)
 
-- [ ]* 10.1 Set up property test infrastructure
+- [x]* 10.1 Set up property test infrastructure
   - Create `profiles/tests/` directory with `__init__.py`
   - Create `profiles/tests/test_properties.py`
   - Install and configure Hypothesis testing library
   - Create shared test fixtures: test user, test profile factory, test repository factory
   - _Requirements: All property tests_
 
-- [ ]* 10.2 Property 1: Slug Format Validation
+- [x]* 10.2 Property 1: Slug Format Validation
   - **Property 1: Slug Format Validation**
   - **Validates: Requirements 1.3, 1.4, 3.5, 9.3, 9.4, 9.6**
   - Generate random strings with various violations (wrong length, invalid chars, uppercase, starts with digit, reserved words)
   - Verify validation accepts valid slugs and rejects invalid ones with specific error messages
   - Test 100+ iterations
 
-- [ ]* 10.3 Property 2: Slug Uniqueness and Immediate Release
+- [x]* 10.3 Property 2: Slug Uniqueness and Immediate Release
   - **Property 2: Slug Uniqueness and Immediate Release**
   - **Validates: Requirements 1.3, 9.2**
   - Generate two valid slugs A and B
@@ -331,7 +331,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Test 100+ iterations
 
 
-- [ ]* 10.4 Property 3: Profile Serialization Completeness and Optional Field Nullability
+- [x]* 10.4 Property 3: Profile Serialization Completeness and Optional Field Nullability
   - **Property 3: Profile Serialization Completeness and Optional Field Nullability**
   - **Validates: Requirements 8.1, 8.4**
   - Generate profiles with all combinations of optional fields set/unset
@@ -340,7 +340,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify unset optional fields serialize as `null` (not omitted)
   - Test 100+ iterations
 
-- [ ]* 10.5 Property 4: Owner vs. Visitor Serialization Difference
+- [x]* 10.5 Property 4: Owner vs. Visitor Serialization Difference
   - **Property 4: Owner vs. Visitor Serialization Difference**
   - **Validates: Requirements 8.2, 8.3**
   - Generate profile with owner, anonymous visitor, and other authenticated user
@@ -348,7 +348,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify visitor serialization excludes those fields
   - Test 100+ iterations
 
-- [ ]* 10.6 Property 5: Serialization Round Trip
+- [x]* 10.6 Property 5: Serialization Round Trip
   - **Property 5: Serialization Round Trip**
   - **Validates: Requirements 8.5**
   - Generate valid profile with random field values
@@ -356,7 +356,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify all field values identical before and after
   - Test 100+ iterations
 
-- [ ]* 10.7 Property 6: Project Entry Display Order Preservation
+- [x]* 10.7 Property 6: Project Entry Display Order Preservation
   - **Property 6: Project Entry Display Order Preservation**
   - **Validates: Requirements 2.7, 5.6**
   - Generate profile with multiple projects with shuffled display_order values
@@ -364,7 +364,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify projects list sorted ascending by display_order
   - Test 100+ iterations
 
-- [ ]* 10.8 Property 7: Project Entry Count Constraint
+- [x]* 10.8 Property 7: Project Entry Count Constraint
   - **Property 7: Project Entry Count Constraint**
   - **Validates: Requirements 5.4, 5.8**
   - Generate profile with 0 to 51 projects
@@ -375,7 +375,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
 
 ### 11. Backend Testing: Property-Based Tests (Part 2)
 
-- [ ]* 11.1 Property 8: Duplicate Project Entry Rejection
+- [x]* 11.1 Property 8: Duplicate Project Entry Rejection
   - **Property 8: Duplicate Project Entry Rejection**
   - **Validates: Requirements 5.9**
   - Generate profile with existing project entry
@@ -383,7 +383,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify rejected with error and project list unchanged
   - Test 100+ iterations
 
-- [ ]* 11.2 Property 9: Profile Immutability on Invalid Input
+- [x]* 11.2 Property 9: Profile Immutability on Invalid Input
   - **Property 9: Profile Immutability on Invalid Input**
   - **Validates: Requirements 3.4, 3.7, 3.8**
   - Generate profile with valid existing data
@@ -392,7 +392,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify profile data unchanged after failed update
   - Test 100+ iterations
 
-- [ ]* 11.3 Property 10: Non-Owner Update Rejection
+- [x]* 11.3 Property 10: Non-Owner Update Rejection
   - **Property 10: Non-Owner Update Rejection**
   - **Validates: Requirements 3.2**
   - Generate profile and another authenticated user who is not owner
@@ -401,7 +401,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Test 100+ iterations
 
 
-- [ ]* 11.4 Property 11: Follow Count Consistency Invariant
+- [x]* 11.4 Property 11: Follow Count Consistency Invariant
   - **Property 11: Follow Count Consistency Invariant**
   - **Validates: Requirements 6.7**
   - Generate random sequence of follow/unfollow operations on multiple profiles
@@ -409,7 +409,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify following_count equals actual Follow record count (where profile is follower)
   - Test 100+ iterations with varying operation sequences
 
-- [ ]* 11.5 Property 12: Follow Idempotence
+- [x]* 11.5 Property 12: Follow Idempotence
   - **Property 12: Follow Idempotence**
   - **Validates: Requirements 6.4**
   - Generate two profiles where A already follows B
@@ -418,7 +418,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify total Follow record count unchanged
   - Test 100+ iterations
 
-- [ ]* 11.6 Property 13: Self-Follow Rejection
+- [x]* 11.6 Property 13: Self-Follow Rejection
   - **Property 13: Self-Follow Rejection**
   - **Validates: Requirements 6.3**
   - Generate any profile
@@ -427,7 +427,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify no Follow record created
   - Test 100+ iterations
 
-- [ ]* 11.7 Property 14: Follow/Unfollow Round Trip
+- [x]* 11.7 Property 14: Follow/Unfollow Round Trip
   - **Property 14: Follow/Unfollow Round Trip**
   - **Validates: Requirements 6.1, 6.2, 6.7**
   - Generate two distinct profiles A and B
@@ -438,7 +438,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify both profiles' counts restored to initial values
   - Test 100+ iterations
 
-- [ ]* 11.8 Property 15: Paginated Follow Lists Ordering
+- [x]* 11.8 Property 15: Paginated Follow Lists Ordering
   - **Property 15: Paginated Follow Lists Ordering**
   - **Validates: Requirements 6.8, 6.9**
   - Generate profile with N followers (varying N from 0 to 200)
@@ -450,7 +450,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
 
 ### 12. Backend Testing: Property-Based Tests (Part 3)
 
-- [ ]* 12.1 Property 16: Search Inclusivity and Active-Only Invariant
+- [x]* 12.1 Property 16: Search Inclusivity and Active-Only Invariant
   - **Property 16: Search Inclusivity and Active-Only Invariant**
   - **Validates: Requirements 7.1, 7.4**
   - Generate set of active and inactive profiles with varying content
@@ -459,7 +459,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify results contain NO inactive profiles regardless of match
   - Test 100+ iterations
 
-- [ ]* 12.2 Property 17: Skill Tag Filter Correctness
+- [x]* 12.2 Property 17: Skill Tag Filter Correctness
   - **Property 17: Skill Tag Filter Correctness**
   - **Validates: Requirements 7.3**
   - Generate profiles with various skill_tags
@@ -469,7 +469,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Test 100+ iterations
 
 
-- [ ]* 12.3 Property 18: GitHub Import Selective Field Application
+- [x]* 12.3 Property 18: GitHub Import Selective Field Application
   - **Property 18: GitHub Import Selective Field Application**
   - **Validates: Requirements 4.3**
   - Generate profile with existing values for avatar_url, display_name, bio
@@ -480,7 +480,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify fields not in S remain unchanged
   - Test 100+ iterations
 
-- [ ]* 12.4 Property 19: GitHub Import Null Field Omission
+- [x]* 12.4 Property 19: GitHub Import Null Field Omission
   - **Property 19: GitHub Import Null Field Omission**
   - **Validates: Requirements 4.7**
   - Generate profile with existing values
@@ -491,7 +491,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify profile fields corresponding to null GitHub values remain unchanged
   - Test 100+ iterations
 
-- [ ]* 12.5 Property 20: GitHub Import Failure Preserves Profile
+- [x]* 12.5 Property 20: GitHub Import Failure Preserves Profile
   - **Property 20: GitHub Import Failure Preserves Profile**
   - **Validates: Requirements 4.4**
   - Generate profile with existing values
@@ -501,7 +501,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Verify profile data identical before and after failed attempt
   - Test 100+ iterations
 
-- [ ]* 12.6 Property 21: Skill Tags Serialized Without Truncation
+- [x]* 12.6 Property 21: Skill Tags Serialized Without Truncation
   - **Property 21: Skill Tags Serialized Without Truncation**
   - **Validates: Requirements 2.3**
   - Generate profile with 0 to 20 skill tags
@@ -511,7 +511,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
 
 ### 13. Backend Testing: Unit Tests and Edge Cases
 
-- [ ]* 13.1 Create unit test file for models
+- [x]* 13.1 Create unit test file for models
   - Create `profiles/tests/test_models.py`
   - Test Profile model constraints:
     - Slug uniqueness enforced at database level
@@ -521,7 +521,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Test Follow CheckConstraint prevents self-follow at database level
   - _Requirements: 1.3, 5.9, 6.3_
 
-- [ ]* 13.2 Create unit test file for services
+- [x]* 13.2 Create unit test file for services
   - Create `profiles/tests/test_services.py`
   - Test ProfileService edge cases:
     - Reserved slug rejection
@@ -537,7 +537,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - _Requirements: 1.4, 4.4, 4.5, 4.6, 6.4, 6.7_
 
 
-- [ ]* 13.3 Create integration test file for API views
+- [x]* 13.3 Create integration test file for API views
   - Create `profiles/tests/test_views.py`
   - Test smoke cases: URL routing, anonymous profile access returns 200, inactive slug returns 404
   - Test profile creation edge cases: missing required fields, existing profile rejection
@@ -547,7 +547,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Test unfollow when not following returns 404
   - _Requirements: 1.1, 1.5, 2.2, 2.5, 6.6, 7.6, 9.1_
 
-- [ ]* 13.4 Create unit tests for GitHub import with mocked API
+- [x]* 13.4 Create unit tests for GitHub import with mocked API
   - Create `profiles/tests/test_github_import.py`
   - Mock GitHub API responses using unittest.mock
   - Test preview returns current value alongside GitHub value
@@ -715,7 +715,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Show current project count and 50-project limit
   - _Requirements: 5.1, 5.4, 5.5, 5.6, 5.8_
 
-- [ ] 18.2 Create project management components
+- [x] 18.2 Create project management components
   - Create `frontend/components/profile/ProjectManagementPanel.tsx`
     - Display list of current projects with drag-to-reorder functionality
     - Remove button for each project (with confirmation)
@@ -787,7 +787,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
 
 ### 21. Frontend Testing and Polish
 
-- [ ]* 21.1 Create component tests for profile components
+- [x]* 21.1 Create component tests for profile components
   - Create test files using Vitest + React Testing Library following existing patterns in the project
   - Test `ProfileHeader.tsx`: renders all fields, handles missing optional fields, shows follow button conditionally
   - Test `SkillTagList.tsx`: renders tags, handles empty state
@@ -796,7 +796,7 @@ This implementation plan breaks down the Developer Profiles feature into discret
   - Mock API responses using `vi.mock()` or MSW
   - _Requirements: All UI rendering requirements_
 
-- [ ]* 21.2 Create page-level tests
+- [x]* 21.2 Create page-level tests
   - Test onboarding flow: steps render, validation works, successful submission redirects
   - Test profile view page: fetches profile, renders components, 404 for non-existent slug
   - Test profile edit page: owner access only, pre-fills form, updates work
